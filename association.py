@@ -19,11 +19,11 @@ data = data[data['rating'] >= threshold]
 
 # Sample a random subset of users
 random.seed(42)  # Set a seed for reproducibility
-user_subset = random.sample(data['userId'].unique().tolist(), k=min(1000, len(data['userId'].unique())))
+user_subset = random.sample(data['userId'].unique().tolist(), k=min(1000, len(data['userId'].unique()))) #mudar o 1000
 data_subset = data[data['userId'].isin(user_subset)]
 
 # Sample a random subset of movies
-movie_subset = random.sample(data_subset['movieId'].unique().tolist(), k=min(100, len(data_subset['movieId'].unique())))
+movie_subset = random.sample(data_subset['movieId'].unique().tolist(), k=min(100, len(data_subset['movieId'].unique()))) #mudar o 100
 data_subset = data_subset[data_subset['movieId'].isin(movie_subset)]
 
 # Aggregate ratings for duplicate entries
