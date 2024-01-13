@@ -17,7 +17,8 @@ data = pd.merge(ratings, movies, on='movieId')
 threshold = 4
 data = data[data['rating'] >= threshold]
 
-random.seed(42)  # Definir uma semente para reprodutibilidade
+# Definir uma semente para reprodutibilidade
+random.seed(42)  
 
 # Amostragem de utilizadores aleatória
 user_subset = random.sample(data['userId'].unique().tolist(), k=min(1000, len(data['userId'].unique()))) # 1000 - sub conjunto de dados a utilizar
