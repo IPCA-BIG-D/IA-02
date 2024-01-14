@@ -38,23 +38,26 @@ user_movie_matrix = data_subset.pivot(index='userId', columns='title', values='r
 basket_sets = user_movie_matrix.applymap(lambda x: 1 if x >= threshold else 0)
 
 # Gerar conjuntos frequentes usando o algoritmo Apriori
-min_support = 0.01
+min_support = 0.01 # apenas conjuntos com suporte superior a 1% são considerados
 frequent_itemsets = apriori(basket_sets, min_support=min_support, use_colnames=True)
 
 # Gerar regras de associação
-rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.5)
+rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.5) # min_threshold = 0.5 - apenas regras com confiança >= 50% são consideradas 
 
 # Apresenta as regras
-for index, rule in rules.iterrows():
-    antecedent_movies = rule['antecedents']
-    consequent_movies = rule['consequents']
+if not rules.empty:
+    for index, rule in rules.iterrows():
+        antecedent_movies = rule['antecedents']
+        consequent_movies = rule['consequents']
 
-    print(f"Rule {index + 1}:")
-    print(f"  If the user likes movies: {', '.join(antecedent_movies)}")
-    print(f"  Then the user might also like movies: {', '.join(consequent_movies)}")
-    print(f"  Confidence: {rule['confidence']:.2f}")
-    print(f"  Lift: {rule['lift']:.2f}")
-    print("-" * 50)
+        print(f"Rule {index + 1}:")
+        print(f"  If the user likes movies: {', '.join(antecedent_movies)}")
+        print(f"  Then the user might also like movies: {', '.join(consequent_movies)}")
+        print(f"  Confidence: {rule['confidence']:.2f}")
+        print(f"  Lift: {rule['lift']:.2f}")
+        print("-" * 50)
+else:
+    print("Not able to identify any rule.")
 
 # If Lift = 1: The antecedent and consequent are independent, and knowing one doesn't provide any information about the other.
 # If Lift > 1: The antecedent and consequent are positively correlated. The higher the lift, the stronger the correlation.

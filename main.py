@@ -96,15 +96,15 @@ print("Confusion Matrix:\n", kmeans_conf_matrix)
 # Visualizations
 fig, axes = plt.subplots(2, 2, figsize=(18, 10))
 
-# Decision Tree Confusion Matrix
+# Decision Tree Matriz Confusão 
 sns.heatmap(dt_conf_matrix, annot=True, fmt='d', cmap='Blues', ax=axes[0, 0])
 axes[0, 0].set_title('Decision Tree Confusion Matrix')
 
-# RandomForest Confusion Matrix
+# RandomForest Matriz Confusão 
 sns.heatmap(rf_conf_matrix, annot=True, fmt='d', cmap='Greens', ax=axes[0, 1])
 axes[0, 1].set_title('RandomForest Confusion Matrix')
 
-# K-Means Confusion Matrix
+# K-Means Matriz Confusão 
 sns.heatmap(confusion_matrix(y_test, X_test_clustered), annot=True, fmt='d', cmap='Reds', ax=axes[1, 0])
 axes[1, 0].set_title('K-Means Confusion Matrix')
 
