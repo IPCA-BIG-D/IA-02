@@ -109,7 +109,7 @@ axes[0, 1].set_title('RandomForest Confusion Matrix')
 sns.heatmap(confusion_matrix(y_test, X_test_clustered), annot=True, fmt='d', cmap='Reds', ax=axes[1, 0])
 axes[1, 0].set_title('K-Means Confusion Matrix')
 
-# Scatter plot for K-Means Clusters (utilizando as 2 primeiras features(X)) com uma amostragem de "sample_size"
+# Gráfico de dispersão K-Means Clusters (utilizando as 2 primeiras features(X)) com uma amostragem de "sample_size"
 sample_size = 1000
 
 sample_indices = np.random.choice(X_test.shape[0], sample_size, replace=False)
