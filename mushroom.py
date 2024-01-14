@@ -113,8 +113,8 @@ axes[1, 0].set_title('K-Means Confusion Matrix')
 sample_size = 1000
 
 sample_indices = np.random.choice(X_test.shape[0], sample_size, replace=False)
-axes[1, 1].scatter(X_test.iloc[sample_indices, 2], X_test.iloc[sample_indices, 6], c=X_test_clustered[sample_indices], cmap='viridis')
-axes[1, 1].scatter(kmeans.cluster_centers_[:, 2], kmeans.cluster_centers_[:, 6], marker='X', s=200, c='red', label='Centroids')
+axes[1, 1].scatter(X_test.iloc[sample_indices, 2], X_test.iloc[sample_indices, 8], c=X_test_clustered[sample_indices], cmap='viridis')
+axes[1, 1].scatter(kmeans.cluster_centers_[:, 2], kmeans.cluster_centers_[:, 8], marker='X', s=200, c='red', label='Centroids')
 axes[1, 1].set_title(f'K-Means Clustering (Sampled {sample_size} points)')
 axes[1, 1].legend()
 
