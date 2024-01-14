@@ -15,7 +15,7 @@ column_names = ["class", "cap-shape", "cap-surface", "cap-color", "bruises", "od
                 "stalk-surface-below-ring", "stalk-color-above-ring", "stalk-color-below-ring", "veil-type",
                 "veil-color", "ring-number", "ring-type", "spore-print-color", "population", "habitat"]
 
-# Lê dados do dataset
+# Lê dados do dataset - Mushroom Classification (https://www.kaggle.com/datasets/uciml/mushroom-classification)
 mushroom_data = pd.read_csv('./input/mushrooms.csv', header=None, names=column_names)
 
 # Encode categorical features
@@ -113,8 +113,8 @@ axes[1, 0].set_title('K-Means Confusion Matrix')
 sample_size = 1000
 
 sample_indices = np.random.choice(X_test.shape[0], sample_size, replace=False)
-axes[1, 1].scatter(X_test.iloc[sample_indices, 0], X_test.iloc[sample_indices, 1], c=X_test_clustered[sample_indices], cmap='viridis')
-axes[1, 1].scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], marker='X', s=200, c='red', label='Centroids')
+axes[1, 1].scatter(X_test.iloc[sample_indices, 2], X_test.iloc[sample_indices, 6], c=X_test_clustered[sample_indices], cmap='viridis')
+axes[1, 1].scatter(kmeans.cluster_centers_[:, 2], kmeans.cluster_centers_[:, 6], marker='X', s=200, c='red', label='Centroids')
 axes[1, 1].set_title(f'K-Means Clustering (Sampled {sample_size} points)')
 axes[1, 1].legend()
 
