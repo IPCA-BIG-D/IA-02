@@ -51,8 +51,8 @@ if not rules.empty:
         consequent_movies = rule['consequents']
 
         print(f"Rule {index + 1}:")
-        print(f"  If the user likes movies: {', '.join(antecedent_movies)}")
-        print(f"  Then the user might also like movies: {', '.join(consequent_movies)}")
+        print(f"  If the user likes the movies: {', '.join(antecedent_movies)}")
+        print(f"  Then the user might also like the movies: {', '.join(consequent_movies)}")
         print(f"  Confidence: {rule['confidence']:.2f}")
         print(f"  Lift: {rule['lift']:.2f}")
         print("-" * 50)
